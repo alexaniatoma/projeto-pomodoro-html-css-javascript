@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Chau+Philomene+One:ital@0;1&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Chau Philomene One", sans-serif;
+  list-style: none;
+  text-decoration: none;
+}
+
+header {
+  background-image: url(./assets/img/banner-principal.png);
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  padding: 1.5rem 2rem;  
+}
+
+.navBar { 
+  display: flex;  
+}
+
+.btn {  
+  background-color: #B72222;
+  color: #D7CBCB;
+  font-size: 2rem;
+  border-radius: 5px;
+  padding: 10px; 
+  margin-right: 1rem; 
+}
+
+.btn:hover {
+  background-color: #fd1e1e;
+  color: #fff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.box-banner {
+  height: 83vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+}
+
+.box-banner h1 {
+  color: #D7CBCB;
+  font-size: 7rem;
+}
+.box-banner p {
+  color: #fd1e1e;
+  font-size: 2.5rem;
+}
+
+.texto-principal {
+  height: 30vh;
+  display: flex;
+  padding: 1.5rem 2rem;
+  background: #D7CBCB;
+  font-size: 1.2rem;
+  align-items: center;
+}
+
+.img-tomate {
+  height: 30px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background: #272020;
+  overflow: hidden;
+}
+.cards article {
+  border: 20px solid #B72222;
+  width: 421px;
+  height: 562px;
+  margin: 10px;
+  background-color: rgba(255, 92, 92, 0.5);
+  position: relative;
+}
+.cards img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+.cards p {
+  color: #fff;
+  font-size: 2em;
+  font-weight: 400;
+  position: absolute;
+  bottom: 40px;
+  left: 15px;
+}
+
+footer {
+  background-color: #B72222;
+  color: #D7CBCB;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 1rem;
+}
+
+@media (max-width: 555px) {
+   .navBar {   
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .btn {
+    padding: 5px;
+    font-size: 1.5rem;
+    margin-right: 0;    
+  }
+
+  .box-banner {
+    height: 55vh;}
+
+  .box-banner h1 {
+    font-size: 4rem;
+    }
+
+  .box-banner p {
+    font-size: 1.5rem;
+  }
+
+  .texto-principal {
+    font-size: 0.8em;
+  }
+
+  .cards article {
+    border: 10px solid #B72222;
+  }
+}
+
+@media (max-width: 900px) {
+  .texto-principal {
+    font-size: 1.2em;
+  }
+  .cards {
+    justify-content: center;
+  }  
+}

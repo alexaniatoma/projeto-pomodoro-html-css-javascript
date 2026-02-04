@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./timer.css">
+    <title>Time</title>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <ul class="navBar">
+        <li><a href="../index.html" class="btn">Home</a></li>
+        <li><a href="../timer/timer.html" class="btn">Timer</a></li>
+        <li><a href="../tarefa/tarefa.html" class="btn">Tarefa</a></li>
+        <li><a href="../sons/sons.html" class="btn">Som</a></li>
+      </ul>        
+    </nav>
+    <section class="temporizador">
+      <h1 class="tituloTemp" id="temporizadorTitulo">Temporizador</h1>
+      <time class="display" id="display" datetime="PT25M">25:00</time>    
+      <div>
+        <button id="iniciar" class="btnTimer">Iniciar</button>
+        <button id="pausar"class="btnTimer">Pausar</button>
+        <button id="zerar" class="btnTimer">Zerar</button>
+      </div>      
+      <h2 class="ciclo" id="ciclo">Ciclo atual: 1 de 4</h2>   
+    </section>    
+  </header>
+  <section class="configuracao">      
+    <h2>Configurações em minutos</h2>
+    <form class="formulario" id="configForm">
+      <label for="focoInput">Tempo de foco
+        <input type="number" id="focoInput" value="25"/>
+      </label>
+      <label for="curtaInput">Pausa curta
+        <input type="number" id="curtaInput" value="5" />
+      </label>
+      <label for="longaInput">Pausa longa
+        <input type="number" id="longaInput" value="30" />
+      </label>       
+        <button type="submit" class="btnSubmit">Salvar</button>           
+    </form>        
+  </section>
+  <footer>
+      <p>Desenvolvido por: Alexania Toma</p>
+      <p>&copy; Projeto vai na Web</p>
+    </footer> 
+
+  <script src="../timer/js/timer.js"></script>   
+</body>
+</html>
