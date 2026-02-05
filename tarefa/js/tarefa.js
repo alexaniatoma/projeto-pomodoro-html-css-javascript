@@ -23,7 +23,8 @@ TAREFA_FORM.addEventListener('submit', (e) => {
         id: Date.now(),
         titulo : TAREFA_INPUT.value,
         concluida: false,
-        ciclosFeitos: 0
+        ciclosFeitos: 0,
+        ciclosNecessarios: 4
     };
 
     tarefas.push(novaTarefa);
@@ -38,22 +39,36 @@ TAREFA_FORM.addEventListener('submit', (e) => {
 function renderizarTarefas() {
     TAREFA_LISTA.innerHTML = '';
 
-    tarefas.forEach(tarefa => {
+    const tarefaAtiva = JSON.parse(localStorage.getItem('tarefaAtiva'));
+
+   tarefas.forEach(tarefa => {
         const li = document.createElement('li');
 
-        li.innerHTML = `
-        <input type= "checkbox" ${tarefa.concluida} ? 'checked' : ''}>
-        <span>${tarefa.titulo}</span>
-        <small>Ciclos: ${tarefa.ciclosFeitos}</small> `;
+        if(tarefa.concluida) {
+            li.classList.add('concluida');
+        }
 
-        li.querySelector('input').addEventListener('change', () => {
-            tarefa.concluida = !tarefa.concluida;
+        if(tarefaAtiva && tarefaAtiva.id === tarefa.id) {
+            li.classList.add('ativa');
+        }
+
+        li.innerHTML = `
+        <input type= "checkbox" ${tarefa.concluida ? 'checked' : ''}>
+        <span>${tarefa.titulo}</span>
+        <small>Ciclos: ${tarefa.ciclosFeitos} / ${tarefa.ciclosNecessarios}</small> `;
+
+        const checkbox = li.querySelector('input');
+        
+        checkbox.addEventListener('change', (e) => {
+            e.stopPropagation();
+            tarefa.concluida = e.target.checked;
             salvarTarefas(tarefas);
         });
 
         /*definir tarefa ativa */
-        li.querySelector('span').addEventListener('click', ()=> {    
+        li.addEventListener('click', ()=> {             
             localStorage.setItem('tarefaAtiva', JSON.stringify(tarefa));
+            renderizarTarefas();
 });
 
         TAREFA_LISTA.appendChild(li);
@@ -61,15 +76,11 @@ function renderizarTarefas() {
     });       
 }
 
-renderizarTarefas(); 
+renderizarTarefas();
 
 
 
 
-const tarefaAtiva = JSON.parse(localStorage.getItem('tarefaAtiva'));
 
-if(tarefaAtiva && tarefaAtiva.id === tarefaAtiva.id){
-    li.classList.add('ativa')
-}
 
 

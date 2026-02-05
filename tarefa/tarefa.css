@@ -60,10 +60,27 @@ span {
     color: #363232;
 }
 
-.ativa {
-    background: #ffe3e3;
-    border-left: 4px solid #b72222;
+ #tarefaLista li {
+    padding: 0.5rem 0.75rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
 }
+
+#tarefaLista li.ativa {
+    border-left: 4px solid #b72222;
+    background-color: #ffecec;
+    box-sizing: border-box;
+    padding-left: 0.5rem;
+}
+
+#tarefaLista li.concluida span {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
 
 @media (max-width: 977px) {
     .tarefa {

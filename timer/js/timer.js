@@ -113,14 +113,24 @@ function registrarCicloDaTarefa() {
     if(!tarefaAtiva) return;
     tarefaAtiva.ciclosFeitos++;
 
+    if(tarefaAtiva.ciclosFeitos >=tarefaAtiva.ciclosNecessarios) {
+        tarefaAtiva.concluida = true;
+        localStorage.removeItem('tarefaAtiva');
+        alert(`Tarefa "${tarefaAtiva.titulo}" concluida!`);
+    }
+
     const tarefas = carregarTarefas();
     const index = tarefas.findIndex(t => t.id === tarefaAtiva.id);
 
     if(index !== -1) {
         tarefas[index] = tarefaAtiva;
         salvarTarefas(tarefas);
+    }
+
+    if(!tarefaAtiva.concluida) {
         localStorage.setItem('tarefaAtiva', JSON.stringify(tarefaAtiva));
     }
+    
 }
 
 /*form configurações*/
